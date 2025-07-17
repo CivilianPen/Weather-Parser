@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block script %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <table  class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Город</th>
+                <th>Прогноз Погоды</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dict_item in myTable %}
+                <tr>
+                    <td class="size"> {{ forloop.counter }} </td>
+                    {% for key, value in dict_item.items %}
+                    <td class="size"> {{ value }} </td>
+                    {% endfor %}
+                    <td class="size"> {{ dict_item.Name }} </td>
+                    <td> <a class="btn btn-secondary" href="{{dict_item.get_absolute_url}}" >Показать</a> </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

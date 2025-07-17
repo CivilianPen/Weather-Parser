@@ -1,0 +1,59 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block script %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
+
+{% block content %}
+<div class = 'review'>
+    <div class="div1">
+        <h2  class='Inf'>{{Today.inf}}</h2>
+        <p  class='Date'>{{Today.date}}</p>
+    </div>
+    <div class="div2">
+
+    </div>
+    <div class="div3">
+        <p class = 'Temp'>{{Today.temp}}</p>
+    </div>
+    <div class="div4">
+        <p class = 'Press'>Давление {{Today.press}}</p>
+        <p class = 'Wind'> Ветер {{Today.wind}}</p>
+        <p class = 'Falls'>{{Today.falls}}</p>
+    </div>
+</div>
+<div class="container mt-5">
+    <table  class="table table-striped">
+        <h2>Погода на неделю </h2>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>День недели</th>
+                <th>Дата</th>
+                <th>Температура</th>
+                <th>Осадки(%)</th>
+                <th>Ветер</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dict_item in Week_Weather %}
+                <tr>
+                    <td class="size"> {{ forloop.counter }} </td>
+                    {% for key, value in dict_item.items %}
+                    {% load util %}
+                    {% if value|get_type == 8 %}
+                    <td class="size"> {{ value.Днем }}  /  {{ value.Ночью }} </td>
+                    {% else %}
+                    <td class="size"> {{ value }} </td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
