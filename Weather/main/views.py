@@ -84,7 +84,6 @@ def Weather(city):
 def page(request):
     content = list(Cities.objects.all())
     return render(request, 'main/Page-1.html' , {'myTable': content} )
-
 def page2(request, post_Name):
     obj = Cities.objects.get(Name = post_Name)
     content = Weather(obj.Url)[0]
