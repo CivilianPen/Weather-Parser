@@ -92,10 +92,11 @@ def Weather(city):
     return Week_Weather, Today_Weather
 
 def page(request):
-    content = list(Cities.objects.all())
-    return render(request, 'main/Page-1.html' , {'myTable': content} )
-def page2(request, post_Name):
+    content1 = list(Cities.objects.all())
+    return render(request, 'main/Page-1.html' , {'myTable': content1})
+def info(request, post_Name):
     obj = Cities.objects.get(Name = post_Name)
-    content = Weather(obj.Url)[0]
-    content2 = Weather(obj.Url)[1]
+    res = Weather(obj.Url)
+    content = res[0]
+    content2 = res[1]
     return render(request, 'main/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name})

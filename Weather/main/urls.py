@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 urlpatterns = [
     path('', views.page, name="main"),
-    path('<str:post_Name>/', views.page2 , name="about"),
+    path('<str:post_Name>', views.info , name="about"),
 ]
 '''content = views.Weather1()
 for i in content:
