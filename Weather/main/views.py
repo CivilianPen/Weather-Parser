@@ -48,7 +48,7 @@ def Weather(city):
     url2 = 'https://weather.rambler.ru/' + city + '/'
     r = requests.get(url)
     html = BS(r.text, 'html.parser')
-    classes = ['_2RLq', 'O6uR', 'HhSR GyfK', 'hjtR pressure HbwD aT_0', 'hjtR wind HbwD aT_0', 'UAaG']
+    classes = ['_2RLq', 'O6uR', 'HhSR GyfK', 'hjtR pressure HbwD aT_0', 'hjtR wind HbwD aT_0','hjtR precipitationProbability HbwD aT_0', 'UAaG']
     V_citi = html.find(class_='RkHg')
     cities_RU.append(V_citi.text[:V_citi.text.rfind(' ')])
 
@@ -69,16 +69,26 @@ def Weather(city):
             comma = os.find(',')
             value.append(os[comma + 2:])
         else:
-            so = t.text
-            space = so.find(' ')
-            value.append(so[space:])
+            if classes[j] != 'hjtR precipitationProbability HbwD aT_0':
+                so = t.text
+                space = so.find(' ')
+                value.append(so[space:])
+            else:
+                try:
+                    so = t.text
+                    space = so.rfind(' ')
+                    value.append(so[space:])
+                except:
+                    value.append('0%')
+
     Today_Weather = {
         'inf': value[0],
         'date': value[1],
         'temp': value[2],
         'press': value[3],
         'wind': value[4],
-        'falls': value[5],
+        'prob': value[5],
+        'falls': value[6],
     }
     return Week_Weather, Today_Weather
 def page(request):
