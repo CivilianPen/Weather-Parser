@@ -80,7 +80,6 @@ def Weather(city):
                     value.append(so[space:])
                 except:
                     value.append('0%')
-
     Today_Weather = {
         'inf': value[0],
         'date': value[1],
@@ -91,6 +90,7 @@ def Weather(city):
         'falls': value[6],
     }
     return Week_Weather, Today_Weather
+
 def page(request):
     content = list(Cities.objects.all())
     return render(request, 'main/Page-1.html' , {'myTable': content} )
