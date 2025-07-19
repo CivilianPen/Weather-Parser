@@ -96,8 +96,22 @@ li {
     grid-row: span 4 / span 4;
     grid-column-start: 3;
     grid-row-start: 2;
-}
 
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0px;
+}
+.div3_1{
+    grid-row: span 2 / span 2;
+}
+.div3_2{
+    grid-row-start: 3;
+    padding-top: 5px;
+}
+.Oshush{
+    font-size: 18px;
+}
 .div4 {
     grid-column: span 2 / span 2;
     grid-row: span 4 / span 4;

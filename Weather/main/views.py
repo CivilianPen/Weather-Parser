@@ -88,7 +88,9 @@ def Weather(city):
         'prob': value[5],
         'falls': value[6],
     }
-    return Week_Weather, Today_Weather
+    kak = html.find(class_ = '_VDA ypY4 MMaW').text
+    print(kak)
+    return Week_Weather, Today_Weather , kak
 def page(request):
     content = list(Cities.objects.all())
     return render(request, 'user/Page-1.html' , {'myTable': content} )
@@ -98,4 +100,5 @@ def page2(request, post_Name):
     res = Weather(obj.Url)
     content = res[0]
     content2 = res[1]
-    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name})
+    content3 = res[2]
+    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name, 'KakOshushaetsa': content3})
