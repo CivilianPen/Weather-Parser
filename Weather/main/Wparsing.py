@@ -1,19 +1,6 @@
-from django.contrib.auth import logout, login
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView
-from django.core.paginator import Paginator
-from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.views.generic import CreateView
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import *
-
-
-import requests
+'''import requests
 from bs4 import BeautifulSoup as BS
-import logging
+
 def Weather(city):
     Week_Weather = ()
     prognoz = 'dDb8'
@@ -89,14 +76,4 @@ def Weather(city):
         'prob': value[5],
         'falls': value[6],
     }
-    return Week_Weather, Today_Weather
-def page(request):
-    content = list(Cities.objects.all())
-    return render(request, 'user/Page-1.html' , {'myTable': content} )
-
-def page2(request, post_Name):
-    obj = Cities.objects.get(Name = post_Name)
-    res = Weather(obj.Url)
-    content = res[0]
-    content2 = res[1]
-    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name})
+    return Week_Weather, Today_Weather'''
