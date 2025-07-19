@@ -25,11 +25,11 @@ def Weather(city):
         db.append(result.text)
     db[0] = 'Дата'
     db = ['День недели'] + db
-    dels = [[] for i in range(len(db[5:]) // 6)]
+    dels = [[] for i in range((len(db) // 6) + 1)]
     for i in range(1, len(dels)):
         for j in range(0, 6):
             dels[i].append(db[i * 6 + j - 1])
-    dels[0] = [db[:5]]
+    dels[0] = db[:5]
     for i in range(1, len(dels)):
         value = dict()
         for key in db[:5]:
@@ -40,7 +40,6 @@ def Weather(city):
         value['Осадки'] = dels[i][4]
         value['Ветер'] = dels[i][5]
         Week_Weather += (value,)
-
     ###############################################################
 
     cities_RU = []
