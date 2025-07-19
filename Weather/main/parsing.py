@@ -6,7 +6,7 @@ cities = ['v-moskve', 'v-sankt-peterburge', 'v-parizhe/frantsiya', 'v-rime', 'v-
           'v-belgrade',
           'v-tokio', 'v-londone/velikobritaniya', 'v-dubae', 'v-gonkonge', 'v-nyu-yorke']
 
-def Weather1(city):
+def Weather(city):
     Week_Weather = ()
     prognoz = 'dDb8'
     r2 = requests.get('https://weather.rambler.ru/' + city + '/')
@@ -34,7 +34,7 @@ def Weather1(city):
         Week_Weather += (value,)
     return Week_Weather
 
-#print(Weather1('v-moskve'))
+#print(Weather('v-moskve'))
 '''
 '''
 cities_RU = []

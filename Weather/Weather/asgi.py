@@ -1,5 +1,5 @@
 """
-ASGI config for Weather1 project.
+ASGI config for Weather project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

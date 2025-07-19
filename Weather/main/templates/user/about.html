@@ -1,13 +1,12 @@
-{% extends 'main/layout.html' %}
-
+{% extends 'user/layout.html' %}
+{% load static %}
 {% block title %}
     Главная
 {% endblock %}
 
 {% block script %}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-{% endblock script %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
 
 {% block content %}
 <div class = 'review'>
@@ -61,4 +60,22 @@
         </tbody>
     </table>
 </div>
+
+<script>
+var weather = '{{Today.falls}}'
+types = {
+'пасмурно' : '{% static 'main/img/1.jpg' %}',
+'облачно с прояснениями' : '{% static 'main/img/1.jpg' %}',
+'малооблачно' : '{% static 'main/img/2.png' %}',
+'ясно' : '{% static 'main/img/3.png' %}',
+'небольшой дождь' : '{% static 'main/img/4.jpg' %}',
+'дождь' : '{% static 'main/img/5.png' %}',
+}
+const img = document.createElement('img');
+img.src = types[weather];
+img.style.height = '130px';
+img.style.width = '130px';
+const container = document.querySelector('#image_info');
+container.append(img);
+</script>
 {% endblock %}

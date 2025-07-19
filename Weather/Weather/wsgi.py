@@ -1,5 +1,5 @@
 """
-WSGI config for Weather1 project.
+WSGI config for Weather project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
