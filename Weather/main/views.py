@@ -101,4 +101,4 @@ def page2(request, post_Name):
     content = res[0]
     content2 = res[1]
     content3 = res[2]
-    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name, 'KakOshushaetsa': content3})
+    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name, 'Temp_Feeling': content3})
