@@ -1,8 +1,9 @@
 body{
     height: 100vh;
     width: 100vw;
+    background: #fff;
 }
-.top{
+.upper_bar{
     display: grid;
     place-items: left;
     background: #1B7CAD;
@@ -10,57 +11,20 @@ body{
     height: 70px;
     overflow: auto;
 }
-.lower {
-    display: grid;
-    grid-template-columns: 80% 20%;
-    padding: 10px
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 24px;
-    margin-top: -6px;
-}
-.size {
-    font-size: 20px;
-}
 .back{
     height: 100%;
     width: 100%;
     overflow: auto;
     display: grid;
     grid-template-rows: 80px 310px auto;
-
 }
-h1 {
-    text-align: center;
-}
-h2 {
-    /*text-align: left;*/
-}
-h4 {
-    text-align: center;
-}
-.logo2 {
+.logo {
     font-size: 36px;
     margin-left: 25px;
     font-weight: bold;
     color: #fff;
 }
-
-.last {
-    float:right;
-    color: #fff;
-}
-li {
-  list-style-type: none;
-}
-.tab {
-    width: 50%;
-    vertical-align: middle;
-    font-size: 24px;
-}
-
-.review {
+.Weather_box {
     float: left;
     font-size: 24px;
     text-align: center;
@@ -73,16 +37,16 @@ li {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 0px;
-    /*
-    padding-left: 40px;
-    padding-top: 15px;
-    padding-bottom: 15px
-    */
+}
+
+
+
+.size {
+    font-size: 20px;
 }
 .div1 {
     grid-column: span 6 / span 6;
 }
-
 .div2 {
     grid-column: span 2 / span 2;
     grid-row: span 4 / span 4;
@@ -90,7 +54,6 @@ li {
     padding-top: 0px;
     padding-left: 40px;
 }
-
 .div3 {
     grid-column: span 2 / span 2;
     grid-row: span 4 / span 4;
@@ -121,7 +84,6 @@ li {
 .Inf {
     margin-top: 10px;
 }
-
 .Temp {
     font-size: 80px;
 }

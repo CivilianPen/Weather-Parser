@@ -88,8 +88,8 @@ def Weather(city):
         'prob': value[5],
         'falls': value[6],
     }
-    kak = html.find(class_ = '_VDA ypY4 MMaW').text
-    return Week_Weather, Today_Weather , kak
+    Temp_Feeling = html.find(class_ = '_VDA ypY4 MMaW').text
+    return Week_Weather, Today_Weather , Temp_Feeling
 def page(request):
     content = list(Cities.objects.all())
     return render(request, 'user/Page-1.html' , {'myTable': content} )
