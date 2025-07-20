@@ -89,7 +89,6 @@ def Weather(city):
         'falls': value[6],
     }
     kak = html.find(class_ = '_VDA ypY4 MMaW').text
-    print(kak)
     return Week_Weather, Today_Weather , kak
 def page(request):
     content = list(Cities.objects.all())
@@ -101,4 +100,4 @@ def page2(request, post_Name):
     content = res[0]
     content2 = res[1]
     content3 = res[2]
-    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'City': post_Name, 'Temp_Feeling': content3})
+    return render(request, 'user/about.html', {'Today': content2, 'Week_Weather': content , 'Temp_Feeling': content3})
