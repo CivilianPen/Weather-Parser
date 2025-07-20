@@ -1,15 +1,38 @@
 body{
     height: 100vh;
     width: 100vw;
+}
+body.light-mode{
     background: #fff;
+    color: #000;
+}
+body.dark-mode{
+    background: #212529;
+    color: #fff;
 }
 .upper_bar{
     display: grid;
     place-items: left;
-    background: #1B7CAD;
     width: 100%;
     height: 70px;
     overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+    background: #1B7CAD;
+    color: #fff;
+}
+.logo {
+    font-size: 36px;
+    margin-left: 25px;
+    font-weight: bold;
+    color: #fff;
+    grid-column: span 2 / span 2;
+}
+.logo2 {
+    padding-top: 15px;
+    grid-column-start: 8;
 }
 .back{
     height: 100%;
@@ -18,20 +41,29 @@ body{
     display: grid;
     grid-template-rows: 80px 310px auto;
 }
-.logo {
-    font-size: 36px;
-    margin-left: 25px;
-    font-weight: bold;
-    color: #fff;
-}
-.Weather_box {
+
+.Weather_box_light_mode{
+    background-color: #e3f5ff;
     float: left;
     font-size: 24px;
     text-align: center;
     width: 50%;
     margin-top: 20px;
     margin-left: 25%;
-    background-color: #e3f5ff;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0px;
+}
+.Weather_box_dark_mode{
+    background-color: #4f7489;
+    float: left;
+    font-size: 24px;
+    text-align: center;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 25%;
     border-radius: 20px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -90,3 +122,4 @@ body{
 .Falls {
     font-size: 18px;
 }
+

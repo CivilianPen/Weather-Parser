@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>{% block title  %} {% endblock %}</title>
@@ -17,6 +17,7 @@
         <div class = 'upper_bar'>
                  <!--  <!-->
                 <div class="logo"><a class = 'btn3' href="{% url 'main-page' %}">Парсер погоды</a></div>
+                <div class="logo2"><button id="theme-toggle" class="btn btn-light">Поменять на темную тему</button></div>
         </div>
 
         {% block content  %}
@@ -28,6 +29,53 @@
         {% endblock %}
 
     </div>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
 
+        body.classList.add('light-mode');
+
+        toggleButton.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.replace('light-mode', 'dark-mode');
+                toggleButton.textContent = 'Поменять на светлую тему';
+                document.getElementById("main_table").className = "table table-dark table-striped";
+                document.getElementById("theme-toggle").className = "btn btn-dark";
+                if (document.getElementById("main_box")!= null){
+                    document.getElementById("main_box").className = "Weather_box_dark_mode";
+                }
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.replace('dark-mode', 'light-mode');
+                toggleButton.textContent = 'Поменять на темную тему';
+                document.getElementById("main_table").className = "table table-striped";
+                document.getElementById("theme-toggle").className = "btn btn-light";
+                if (document.getElementById("main_box")!= null){
+                    document.getElementById("main_box").className = "Weather_box_light_mode";
+                }
+                localStorage.setItem('theme', 'light-mode');
+            }
+            console.log(localStorage['theme'])
+        });
+
+        if (localStorage['theme'] == 'dark-mode') {
+                body.classList.replace('light-mode', 'dark-mode');
+                toggleButton.textContent = 'Поменять на светлую тему';
+                document.getElementById("main_table").className = "table table-dark table-striped";
+                document.getElementById("theme-toggle").className = "btn btn-dark";
+                if (document.getElementById("main_box")!= null){
+                    document.getElementById("main_box").className = "Weather_box_dark_mode";
+                }
+        } else {
+                body.classList.replace('dark-mode', 'light-mode');
+                toggleButton.textContent = 'Поменять на темную тему';
+                document.getElementById("main_table").className = "table table-striped";
+                document.getElementById("theme-toggle").className = "btn btn-light";
+                if (document.getElementById("main_box")!= null){
+                    document.getElementById("main_box").className = "Weather_box_light_mode";
+                }
+        }
+
+    </script>
 </body>
 </html>

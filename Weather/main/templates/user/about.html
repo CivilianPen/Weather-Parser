@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class = 'Weather_box'>
+<div id= 'main_box' class = 'Weather_box_light_mode'>
     <div class="div1">
         <h2  class='Inf'>{{Today.inf}}</h2>
         <p  class='Date'>{{Today.date}}</p>
@@ -36,7 +36,7 @@
     </div>
 </div>
 <div class="container mt-5">
-    <table  class="table table-striped">
+    <table id ='main_table' class="table table-striped">
         <h2>Погода на неделю </h2>
         <thead>
             <tr>
